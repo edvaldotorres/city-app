@@ -11,7 +11,7 @@ export const Container = styled.div`
     text-shadow: 2px 2px 4px #000000;
 
     span {
-      color: var(--pinkCities)
+      color: var(--pinkCities);
     }
 
   }

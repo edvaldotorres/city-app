@@ -21,7 +21,7 @@ export const Container = styled.div`
     tr {
       th {
         width: 100%;
-        color: var(--pinkCities)
+        color: var(--pinkCities);
         font-size: 1.1rem;
         text-align: left;
       }
@@ -49,7 +49,7 @@ export const Container = styled.div`
       height: 30px;
       border: 0;
       border-radius: 8px;
-      background: var(--pinkCities)
+      background: var(--pinkCities);
       font-weight: 500;
       font-size: 16px;
       color: #fff;
