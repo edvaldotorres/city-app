@@ -5,9 +5,10 @@ import { Container } from "./styles";
 
 interface ITableProps {
   cities: ICities[] | null;
+  state: string | undefined;
 }
 
-const Table = ({ cities }: ITableProps) => {
+const Table = ({ cities, state }: ITableProps) => {
   const [paginationStartIndex, setPaginationStartIndex] = React.useState(0);
   const [paginationEndIndex, setPaginationEndIndex] = React.useState(15);
   const [paginationArray, setPaginationArray] = React.useState<
@@ -45,7 +46,7 @@ const Table = ({ cities }: ITableProps) => {
         {paginationArray?.map((city) => (
           <tr key={city.ID}>
             <td>{city.Nome}</td>
-            <td>{city.Estado}</td>
+            <td>{state}</td>
           </tr>
         ))}
       </table>

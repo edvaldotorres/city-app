@@ -14,9 +14,16 @@ export interface ICities {
   Estado: string;
 }
 
+export interface IStates {
+  ID: string;
+  Nome: string;
+  Sigla: string;
+}
+
 const Home: React.FC = () => {
   const [state, setState] = useState("");
   const [cities, setCities] = useState<ICities[] | null>([]);
+  const [selectedState, setSelectedState] = useState<IStates | null>(null);
 
   function getCitiesByStateId(stateId: string) {
     const getCities = citiesData.filter((city) => city.Estado === stateId);
@@ -28,6 +35,7 @@ const Home: React.FC = () => {
     if (state.length === 2) {
       const stateFound = findStatesByAcronym(state);
       if (stateFound) {
+        setSelectedState(stateFound);
         getCitiesByStateId(stateFound.ID);
       } else {
         setCities(null);
@@ -36,6 +44,7 @@ const Home: React.FC = () => {
     if (state.length > 3) {
       const stateFound = findStatesByName(state);
       if (stateFound) {
+        setSelectedState(stateFound);
         getCitiesByStateId(stateFound.ID);
       } else {
         setCities(null);
@@ -59,7 +68,9 @@ const Home: React.FC = () => {
           </ErrorText>
         )}
       </Content>
-      {cities && cities.length > 0 && <Table cities={cities} />}
+      {cities && cities.length > 0 && (
+        <Table cities={cities} state={selectedState?.Sigla} />
+      )}
     </Container>
   );
 };
