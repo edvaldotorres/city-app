@@ -8,11 +8,11 @@
   </a>
 </p>
 
-> Project in React with the objective of consuming an API to list cities by state in Brazil!
+> Great project in React! It is very interesting to see the use of an API to list cities by state in Brazil, which can be very useful in several use cases. Also, choosing React as a technology is a great choice as it allows you to create dynamic and scalable user interfaces.
 
 ## Prerequisites
 
-* NPM
+* Docker
 
 ## Install
 
@@ -30,18 +30,18 @@ cd city-app
 3. Install the dependencies
 
 ```sh
-npm install
+docker build -t city-app . 
 ```
 
 4. Start server
 
 ```sh
-npm run dev
+docker run -p 8080:8080 -d city-app
 ```
 
 ## Usage
 
-1. You can now open your application with platform: http://localhost:5173/
+1. You can now open your application with platform: http://localhost:8080/
 
 ## Author
 
